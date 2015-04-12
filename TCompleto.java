@@ -2,7 +2,7 @@ public class TCompleto
 {
 	private static double a,b,c,ang;
 	private static double cat,cat2;
-	private static Triangolo t
+	private static Triangolo t;
 	public TCompleto()
 	{
 		//void
