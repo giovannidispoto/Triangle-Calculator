@@ -1,6 +1,5 @@
 import java.io.*;
-class MainClassTriangoli
-{
+class MainClassTriangoli{
 	public static void main(String args[]) throws Exception
 	{
 		InputStreamReader input = new InputStreamReader(System.in);
@@ -98,7 +97,7 @@ class MainClassTriangoli
 						System.out.println("Valore non valido");
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + t.ipoAngOpp(ipo,ang));
+					System.out.println("Il cateto misura " + t.ipoAngOpp(ipo,Math.toRadians(ang)));
 													
 						break;
 				case 2:
@@ -125,7 +124,7 @@ class MainClassTriangoli
 						System.out.println("Valore non valido");
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " +t.ipoAngAd(ipo,ang));
+					System.out.println("Il cateto misura " +t.ipoAngAd(ipo,Math.toRadians(ang)));
 						
 						break;
 				case 3:
@@ -153,7 +152,7 @@ class MainClassTriangoli
 						System.out.println("Valore non valido");
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + t.catAngOpp(cat,ang));
+					System.out.println("Il cateto misura " + t.catAngOpp(cat,Math.toRadians(ang)));
 												
 						break;
 				case 4:
@@ -180,7 +179,7 @@ class MainClassTriangoli
 						System.out.println("valore non valido");
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + t.catAngAd(cat,ang));
+					System.out.println("Il cateto misura " + t.catAngAd(cat,Math.toRadians(ang)));
 						
 						break;
 				case 5:
@@ -221,7 +220,7 @@ class MainClassTriangoli
 						continue;
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + t.carnot(lato,lato1,ang));
+					System.out.println("Il cateto misura " + t.carnot(lato,lato1,Math.toRadians(ang)));
 						break;
 				default:
 						System.out.println("Valore non presente!");
@@ -285,7 +284,7 @@ class MainClassTriangoli
 							continue;
 						}
 						}while(!letturac);
-						System.out.println("Il perimetro del triangolo misura "+t.perSenAngAd(lato,ang));
+						System.out.println("Il perimetro del triangolo misura "+t.perSenAngAd(lato,Math.toRadians(ang)));
 						break;
 						
 				case 2: 
@@ -315,7 +314,7 @@ class MainClassTriangoli
 						}
 					}while(!letturac);
 
-						System.out.println("Il perimetro del triangolo misura " + t.perSenAngOpp(lato,ang));
+						System.out.println("Il perimetro del triangolo misura " + t.perSenAngOpp(lato,Math.toRadians(ang)));
 							break;
 					case 0:
 							perc = true;
@@ -378,7 +377,7 @@ class MainClassTriangoli
 						}
 					}while(!letturac);
 
-						System.out.println("L'area del triangolo misura" + t.areaSenAngAd(lato,ang));
+						System.out.println("L'area del triangolo misura" + t.areaSenAngAd(lato,Math.toRadians(ang)));
 						break;
 				case 2:
 						
@@ -407,7 +406,7 @@ class MainClassTriangoli
 						}
 					}while(!letturac);
 
-						System.out.println("L'area del triangolo misura" + t.areaSenAngOpp(lato,ang));
+						System.out.println("L'area del triangolo misura" + t.areaSenAngOpp(lato,Math.toRadians(ang)));
 						break;
 				case 0:
 						areac = true;
