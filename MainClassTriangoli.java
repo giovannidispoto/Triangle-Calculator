@@ -1,5 +1,5 @@
 import java.io.*;
-class usaTriangoli
+class MainClassTriangoli
 {
 	public static void main(String args[]) throws Exception
 	{
@@ -12,8 +12,11 @@ class usaTriangoli
 		boolean lettura1 = false;
 		boolean letturac = false;
 		boolean ftot = false;
-		double ipo = 0,ang = 0,cat = 0,lato = 0,lato1 = 0;
-		TCompleto a = new TCompleto();
+		boolean areac = false;
+		boolean perc = false;
+		double ipo = 0,ang = 0,cat = 0,lato = 0,lato1 = 0,perimetro = 0,area = 0;
+		int area_s = 0,perimetro_s = 0;
+		Triangolo t = new Triangolo();
 		int scelta1 = 0,scelta = 0;
 
 	do{	
@@ -95,7 +98,7 @@ class usaTriangoli
 						System.out.println("Valore non valido");
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + Triangolo.ipoAngOpp(ipo,ang));
+					System.out.println("Il cateto misura " + t.ipoAngOpp(ipo,ang));
 													
 						break;
 				case 2:
@@ -122,7 +125,7 @@ class usaTriangoli
 						System.out.println("Valore non valido");
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + Triangolo.ipoAngAd(ipo,ang));
+					System.out.println("Il cateto misura " +t.ipoAngAd(ipo,ang));
 						
 						break;
 				case 3:
@@ -150,7 +153,7 @@ class usaTriangoli
 						System.out.println("Valore non valido");
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + Triangolo.catAngOpp(cat,ang));
+					System.out.println("Il cateto misura " + t.catAngOpp(cat,ang));
 												
 						break;
 				case 4:
@@ -177,7 +180,7 @@ class usaTriangoli
 						System.out.println("valore non valido");
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + Triangolo.catAngAd(cat,ang));
+					System.out.println("Il cateto misura " + t.catAngAd(cat,ang));
 						
 						break;
 				case 5:
@@ -218,7 +221,7 @@ class usaTriangoli
 						continue;
 					}
 						}while(!lettura1);
-					System.out.println("Il cateto misura " + Triangolo.carnot(lato,lato1,ang));
+					System.out.println("Il cateto misura " + t.carnot(lato,lato1,ang));
 						break;
 				default:
 						System.out.println("Valore non presente!");
@@ -231,8 +234,64 @@ class usaTriangoli
 					lettura = false;
 					lettura1 = false;
 					letturac = false;
-					System.out.println("Inserisci il primo lato: ");
+					lato = 0;
+					ang = 0;
+			do{	
+			do{		
+				System.out.println("-------------------------------------------------------------------------");
+				System.out.println("1) Calcola il perimetro avendo l'ipotenusa e l'angolo adiacente al cateto");
+				System.out.println("2) Calcola il perimetro con l'ipotenusa è l'angolo opposto al cateto");
+				System.out.println("0) Torna su!");
+				System.out.print ("Fai la tua scelta: ");
+				
+				
+			
+				try{
+						perimetro_s = Integer.parseInt(tastiera.readLine());
+						lettura1 = true;
+						}
+					catch(Exception e)
+						{
+							System.out.println("Valore non valido");
+						}
+				}while(!lettura1);
+				switch(perimetro_s)
+				{
+					case 1:
+							
 				do{
+					System.out.print("Inserisci il primo lato: ");
+					try{
+						lato = Double.parseDouble(tastiera.readLine());
+						lettura = true;
+						}
+					catch(Exception e)
+						{
+							System.out.println("Valore non valido");
+							continue;
+						}
+					}while(!lettura);
+					
+					
+			do{
+				System.out.print("Inserisci l'angolo: ");
+					try{
+						ang = Double.parseDouble(tastiera.readLine());
+						letturac = true;
+						}
+					catch(Exception e)
+						{
+							System.out.println("Valore non valido");
+							continue;
+						}
+						}while(!letturac);
+						System.out.println("Il perimetro del triangolo misura "+t.perSenAngAd(lato,ang));
+						break;
+						
+				case 2: 
+									
+				do{
+					System.out.print("Inserisci il primo lato: ");
 					try{
 						lato = Double.parseDouble(tastiera.readLine());
 						lettura = true;
@@ -243,20 +302,9 @@ class usaTriangoli
 						}
 					}while(!lettura);
 					
-						System.out.println("Inserisci il secondo lato: ");
-				do{
-					try{
-						lato1 = Double.parseDouble(tastiera.readLine());
-						lettura1 = true;
-						}
-					catch(Exception e)
-						{
-							System.out.println("Valore non valido");
-						}
-					}while(!lettura1);
 					
-					System.out.println("Inserisci l'angolo compreso: ");
 				do{
+					System.out.print("Inserisci l'angolo: ");
 					try{
 						ang = Double.parseDouble(tastiera.readLine());
 						letturac = true;
@@ -266,16 +314,47 @@ class usaTriangoli
 							System.out.println("Valore non valido");
 						}
 					}while(!letturac);
-				a = new TCompleto(lato,lato1,ang);
-				
-				System.out.println("Il perimetro misura " + a.perimetro(lato,lato1,ang));
+
+						System.out.println("Il perimetro del triangolo misura " + t.perSenAngOpp(lato,ang));
+							break;
+					case 0:
+							perc = true;
+							break;
+					default:
+							System.out.println("Scelta non presente!");
+							break;
+				}
+				}while(!perc);
 					break;
 			case 3:
 					lettura = false;
 					lettura1 = false;
 					letturac = false;
-					System.out.println("Inserisci il primo lato: ");
+			do{	
+			do{
+				System.out.println("-----------------------------------------------------------------");	
+				System.out.println("1) Calcola l'area con l'ipotenusa è l'angolo adiacente al cateto");
+				System.out.println("2) Calcola l'area con l'ipotenusa è l'angolo opposto al cateto");
+				System.out.println("0) Torna su!");
+				System.out.print ("Fai la tua scelta: ");
+				
+				
+				try{
+						area_s = Integer.parseInt(tastiera.readLine());
+						lettura1 = true;
+						}
+					catch(Exception e)
+						{
+							System.out.println("Valore non valido");
+						}
+				}while(!lettura1);
+			
+			switch(area_s)
+			{
+				case 1:		
+						
 				do{
+					System.out.println("Inserisci il primo lato: ");
 					try{
 						lato = Double.parseDouble(tastiera.readLine());
 						lettura = true;
@@ -286,20 +365,9 @@ class usaTriangoli
 						}
 					}while(!lettura);
 					
-						System.out.println("Inserisci il secondo lato: ");
-				do{
-					try{
-						lato1 = Double.parseDouble(tastiera.readLine());
-						lettura1 = true;
-						}
-					catch(Exception e)
-						{
-							System.out.println("Valore non valido");
-						}
-					}while(!lettura1);
 					
-					System.out.println("Inserisci l'angolo: ");
 				do{
+					System.out.println("Inserisci l'angolo: ");
 					try{
 						ang = Double.parseDouble(tastiera.readLine());
 						letturac = true;
@@ -309,16 +377,52 @@ class usaTriangoli
 							System.out.println("Valore non valido");
 						}
 					}while(!letturac);
-					 a = new TCompleto();
-				
-				System.out.println("L'area del triangolo misura " + a.area(lato,lato1,ang));
-					break;
-			default:
-					System.out.println("Scelta non presente");
-					break;
-		}
-	}while(!ftot);
-		
+
+						System.out.println("L'area del triangolo misura" + t.areaSenAngAd(lato,ang));
+						break;
+				case 2:
+						
+				do{
+					System.out.println("Inserisci il primo lato: ");
+					try{
+						lato = Double.parseDouble(tastiera.readLine());
+						lettura = true;
+						}
+					catch(Exception e)
+						{
+							System.out.println("Valore non valido");
+						}
+					}while(!lettura);
+					
+					
+				do{
+					System.out.println("Inserisci l'angolo: ");
+					try{
+						ang = Double.parseDouble(tastiera.readLine());
+						letturac = true;
+						}
+					catch(Exception e)
+						{
+							System.out.println("Valore non valido");
+						}
+					}while(!letturac);
+
+						System.out.println("L'area del triangolo misura" + t.areaSenAngOpp(lato,ang));
+						break;
+				case 0:
+						areac = true;
+						break;
+				default:
+						System.out.println("Scelta non valida");
+						break;
+			}
+			}while(!areac);
+			
+	}
+
+}while(!ftot);
 }
 }
+
+
 
